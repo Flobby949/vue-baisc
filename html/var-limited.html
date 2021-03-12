@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>var 的局限性</title>
+  </head>
+  <body>
+    <button>测试1</button>
+    <button>测试2</button>
+    <button>测试3</button>
+    <script>
+      // 循环添加点击事件
+      var buttons = document.getElementsByTagName("button");
+
+      // 结果：只输出  “点击测试第3”
+      //   for (var i = 0; i < buttons.length; i++) {
+      //     buttons[i].onclick = function () {
+      //       console.log("点击测试第" + i);
+      //     };
+      //   }
+
+      // 闭包解决上面代码
+    //   for (var i = 0; i < buttons.length; i++) {
+    //     (function (i) {
+    //       buttons[i].onclick = function () {
+    //         console.log("点击测试第" + i);
+    //       };
+    //     })(i);
+    //   }
+
+      //   es6解决方法，let
+      for (let i = 0; i < buttons.length; i++) {
+        buttons[i].onclick = function () {
+          console.log("点击测试第" + i);
+        };
+      }
+    </script>
+  </body>
+</html>

@@ -59,7 +59,7 @@
       <h2>{{lastName.length}}个字符</h2>
       <h2>{{age * 2}}</h2>
       <h2>{{age > 30 ? '中年':'青年'}}</h2>
-      <h2>{{firstName.split('X').reverse().join(',')}}</h2>
+      <h2>{{firstName.split('n').reverse().join(',')}}</h2>
       <h2>{{customMethod(firstName)}}</h2>
       <h2>{{date|dateFormat('')}}</h2>
       <h2 v-html="info"></h2>
@@ -67,14 +67,18 @@
     <br />
     <div id="app">
       <h3>{{msg}}</h3>
-      <h3 v-show="flag">{{msg}}</h3>
+      <h3 v-if="flag">{{msg}}</h3>
 
-      <h3 v-if='num>30'>大于30</h3>
-      <h3 v-else-if='num>50'>大于50</h3>
-      <h3 v-else-if='num>80'>大于50</h3>
-  
-      <!-- <img src="../images/bg1.png"> -->
+      <h3 v-if='num<=30'>小于等于30</h3>
+      <h3 v-else-if='num>30&&num<=80'>大于50,小于等于80</h3>
+      <h3 v-else-if='num>80&&num<100'>大于80，小于100</h3>
+      <h3 v-else>其他</h3>
+
+
       <image :src="imgSrc" style="height: 200px;">
+      <image v-bind:src="imgSrc" style="height: 200px;">
+
+
       <!-- <div id="one"></div>
       <div id="two"></div>
       <div id="three"></div> -->
